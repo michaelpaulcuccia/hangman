@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>-- Hangman --</title>
+</head>
+<body>
+
+    <h1>Hangman</h1>
+    <p>Let's play!</p>
+
+    <div class="game-container">
+        <svg height='250' width='200' class="figure-container">
+            <!-- Gallows -->
+            <line x1='60' y1='20' x2='140' y2='20'/> <!-- top vertical line -->
+            <line x1='140' y1='20' x2='140' y2='50'/> <!-- noose line -->
+            <line x1='60' y1='20' x2='60' y2='230'/> <!-- long upright line -->
+            <line x1='20' y1='230' x2='100' y2='230'/> <!-- base -->
+            <!-- Hangman -->
+            <circle cx='140' cy='70' r='20'/> <!-- head -->    
+            <line x1='140' y1='90' x2='140' y2='150'/> <!-- body-->
+            <line x1='140' y1='120' x2='120' y2='100'/> <!-- left side arm-->
+            <line x1='140' y1='120' x2='160' y2='100'/> <!-- right side arm-->
+            <line x1='140' y1='150' x2='120' y2='180'/> <!-- left side leg-->
+            <line x1='140' y1='150' x2='160' y2='180'/> <!-- right side leg-->
+
+        </svg>
+    </div>
+    
+</body>
+</html>
