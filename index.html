@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
     <title>-- Hangman --</title>
 </head>
 <body>
@@ -12,21 +13,51 @@
     <p>Let's play!</p>
 
     <div class="game-container">
-        <svg height='250' width='200' class="figure-container">
+
+        <svg height='250' width='200' class="hangman-container">
             <!-- Gallows -->
             <line x1='60' y1='20' x2='140' y2='20'/> <!-- top vertical line -->
             <line x1='140' y1='20' x2='140' y2='50'/> <!-- noose line -->
             <line x1='60' y1='20' x2='60' y2='230'/> <!-- long upright line -->
             <line x1='20' y1='230' x2='100' y2='230'/> <!-- base -->
             <!-- Hangman -->
-            <circle cx='140' cy='70' r='20'/> <!-- head -->    
-            <line x1='140' y1='90' x2='140' y2='150'/> <!-- body-->
-            <line x1='140' y1='120' x2='120' y2='100'/> <!-- left side arm-->
-            <line x1='140' y1='120' x2='160' y2='100'/> <!-- right side arm-->
-            <line x1='140' y1='150' x2='120' y2='180'/> <!-- left side leg-->
-            <line x1='140' y1='150' x2='160' y2='180'/> <!-- right side leg-->
-
+            <circle cx='140' cy='70' r='20'class="body-part"/> <!-- head -->    
+            <line x1='140' y1='90' x2='140' y2='150' class="body-part"/> <!-- body-->
+            <line x1='140' y1='120' x2='120' y2='100' class="body-part"/> <!-- left side arm-->
+            <line x1='140' y1='120' x2='160' y2='100' class="body-part"/> <!-- right side arm-->
+            <line x1='140' y1='150' x2='120' y2='180' class="body-part"/> <!-- left side leg-->
+            <line x1='140' y1='150' x2='160' y2='180' class="body-part"/> <!-- right side leg-->
         </svg>
+
+        <div class="wrong-letters-container">
+            <div id="wrong-letters">
+                <p>Wrong</p>
+                <span>r, s, t, l, n, e, s, t, l, n, e, d</span>
+            </div>
+        </div>
+
+       <div class='word' id="word">
+           <div class="letter">h</div>
+           <div class="letter">e</div>
+           <div class="letter">l</div>
+           <div class="letter">l</div>
+           <div class="letter">0</div>
+       </div>
+
+    </div>
+
+    <!-- container for final messages -->
+
+    <div class="pop-up-container" id="pop-up-container">
+        <div class="pop-up">
+            <h2 id="final-message">You Have Won!</h2>
+            <button id="play-button">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Notification  -->
+    <div class="notification-container" id="notification-container">
+        <p>You Have Already Entered This Letter</p>
     </div>
     
 </body>
