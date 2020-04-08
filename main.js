@@ -49,7 +49,29 @@ function displayWord() {
 
 //Update The Wrong Letters
 function updateWrongLettersElement() {
-    console.log('update wrong!')
+
+    //display wrong letters
+    wrongLettersElement.innerHTML = `
+    ${wrongLetters.length > 0 ? '<p>Wrong !</p>' : ''}
+    ${wrongLetters.map(letter => `<span>${letter}</span>`)}
+    `;
+
+    //display hangman's parts 
+    hangmanParts.forEach((part, index) => {
+        const errors = wrongLetters.length;
+
+        if (index < errors) {
+            part.style.display = 'block';
+        } else {
+            part.style.display = 'none';
+        }
+    });
+
+    //check if lost
+    if (wrongLetters.length === hangmanParts.length) {
+        finalMessage.innerText = 'Game Over!'
+        popUp.style.display = 'flex';
+    }
 };
 
 //Show Notification
@@ -91,6 +113,21 @@ window.addEventListener('keydown', event => {
     } else {
         alert('You can only choose A through Z');
     }
+});
+
+//Restart Game
+playAgainButton.addEventListener('click', () => {
+    //empty arrays
+    correctLetters.splice(0);
+    wrongLetters.splice(0);
+
+    selectedWord = words[Math.floor(Math.random() * words.length)];
+
+    displayWord();
+
+    updateWrongLettersElement();
+
+    popUp.style.display = 'none';
 });
 
 displayWord();
