@@ -15,7 +15,7 @@ const words = ['pasta', 'truck', 'balloon', 'nintendo', 'paint', 'hiking', 'capo
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 console.log(selectedWord);
 
-const correctLetters = ["r", "s", "t", "l", "n", "e", "d", "h", "c", "a", "p"];
+const correctLetters = [];
 const wrongLetters = [];
 
 //Show Hidden Word
@@ -24,6 +24,7 @@ const wrongLetters = [];
 //using include(), check to see if any of the letters are in the correct letter
 //if letter is included, show letter. else, show empty string 
 //turn array back into a string with join
+
 function displayWord() {
     wordElement.innerHTML = 
     `${selectedWord
@@ -45,5 +46,51 @@ function displayWord() {
         popUp.style.display = 'flex';
     }
 };
+
+//Update The Wrong Letters
+function updateWrongLettersElement() {
+    console.log('update wrong!')
+};
+
+//Show Notification
+function showNotification() {
+    notification.classList.add('show');
+
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
+};
+
+//Keydown Letter Press - ONLY Letters 65-90
+window.addEventListener('keydown', event => {
+    //console.log(event.keyCode);
+
+    if(event.keyCode >= 65 && event.keyCode <= 90) {
+        console.log('you typed a letter');
+        const letter = event.key;
+
+            if(selectedWord.includes(letter)) {
+
+                    if(!correctLetters.includes(letter)) {
+                        correctLetters.push(letter);
+
+                        displayWord();
+                    } else {
+                        showNotification()
+                    }
+
+            } else {
+                if(!wrongLetters.includes(letter)) {
+                    wrongLetters.push(letter);
+
+                    updateWrongLettersElement();
+                } else {
+                    showNotification();
+                }
+            }
+    } else {
+        alert('You can only choose A through Z');
+    }
+});
 
 displayWord();
