@@ -10,7 +10,7 @@ const finalMessage = document.getElementById('final-message');
 const hangmanParts = document.querySelectorAll('.body-part');
 
 //Words
-const words = ['pasta', 'pizza', 'mozzarella', 'ricotta', 'parmigiano reggiano', 'lasanga', 'fettuccine alfredo', 'ravioloi', 'spaghetti bolognese', 'risotto', 'calamari fritti', 'baccala', 'prosciutto cotto', 'provolone', 'biscotti', 'gelato', 'caffe macchiato', 'pollo alla cacciatori', 'tortellini', 'panettone', 'gnocchi', 'cannelloni'];
+const words = ['pasta', 'pizza', 'mozzarella', 'ricotta', 'parmigiano', 'lasanga', 'fettuccine', 'ravioloi', 'spaghetti', 'risotto', 'calamari', 'baccala', 'prosciutto', 'provolone', 'biscotti', 'gelato', 'caffe', 'tortellini', 'panettone', 'gnocchi', 'cannelloni'];
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 console.log(selectedWord);
